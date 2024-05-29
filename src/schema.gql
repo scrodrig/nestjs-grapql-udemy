@@ -9,4 +9,7 @@ type Query {
 
   """Random number from zero to value"""
   randomFromZeroTo(to: Int = 10): Int!
+
+  """Returns a list of todos"""
+  todos: [String!]!
 }
