@@ -3,7 +3,7 @@
 /node_modules
 /build
 
-src/schema.gql
+/src/schema.gql
 
 # Logs
 logs
