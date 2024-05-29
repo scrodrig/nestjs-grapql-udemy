@@ -3,5 +3,6 @@
 # ------------------------------------------------------
 
 type Query {
-  helloworld: String!
+  """Hello world is what is returned"""
+  hello: String!
 }
