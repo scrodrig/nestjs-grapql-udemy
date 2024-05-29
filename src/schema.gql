@@ -5,4 +5,5 @@
 type Query {
   """Hello world is what is returned"""
   hello: String!
+  randomNumber: Float!
 }
