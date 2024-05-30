@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Todo {
+  id: Int!
+  description: String!
+  done: Boolean!
+}
+
 type Query {
   """Hello world is what is returned"""
   hello: String!
@@ -11,5 +17,5 @@ type Query {
   randomFromZeroTo(to: Int = 10): Int!
 
   """Returns a list of todos"""
-  todos: [String!]!
+  todos: [Todo!]!
 }
