@@ -22,3 +22,13 @@ type Query {
   """Returns a single todo"""
   todo(id: Int!): Todo!
 }
+
+type Mutation {
+  """Creates a new todo"""
+  createTodo(createTodoInput: CreateTodoInput!): Todo!
+}
+
+input CreateTodoInput {
+  """The description of the todo"""
+  description: String!
+}
