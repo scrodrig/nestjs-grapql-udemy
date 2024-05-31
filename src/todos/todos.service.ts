@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { CreateTodoInput } from './dto/inputs/create-todo.input';
+import { StatusArgs } from './dto/args/status.args';
 import { Todo } from './entity/todo.entity';
 import { UpdateTodoInput } from './dto/inputs/update-todo.input';
 
@@ -24,7 +25,12 @@ export class TodosService {
     },
   ];
 
-  findAll(): Todo[] {
+  findAll(args?: StatusArgs): Todo[] {
+    const { status } = args;
+
+    if (status !== undefined) {
+      return this.todos.filter((todo) => todo.done === status);
+    }
     return this.todos;
   }
 
