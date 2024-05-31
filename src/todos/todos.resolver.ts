@@ -5,7 +5,7 @@ import { TodosService } from './todos.service';
 import { CreateTodoInput } from './dto/inputs/create-todo.input';
 import { UpdateTodoInput } from './dto/inputs/update-todo.input';
 
-@Resolver()
+@Resolver(() => Todo)
 export class TodosResolver {
   constructor(private readonly todosService: TodosService) {}
 
