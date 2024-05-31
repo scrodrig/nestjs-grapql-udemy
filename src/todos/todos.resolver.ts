@@ -46,4 +46,12 @@ export class TodosResolver {
   ) {
     return this.todosService.updateTodo(updateTodoInput);
   }
+
+  @Mutation(() => Todo, {
+    name: 'deleteTodo',
+    description: 'Deletes a todo',
+  })
+  deleteTodo(@Args('id', { type: () => Int }) id: number): Todo {
+    return this.todosService.deleteTodo(id);
+  }
 }
