@@ -6,7 +6,6 @@ import { UpdateTodoInput } from './dto/inputs/update-todo.input';
 
 @Injectable()
 export class TodosService {
-  
   private todos: Todo[] = [
     {
       id: 1,
@@ -54,5 +53,14 @@ export class TodosService {
       todo.id === updatedTodo.id ? updatedTodo : todo,
     );
     return updatedTodo;
+  }
+
+  deleteTodo(id: number) {
+    const todo = this.findOne(id);
+    if (!todo) {
+      throw new NotFoundException(`Todo with id ${id} not found`);
+    }
+    this.todos = this.todos.filter((todo) => todo.id !== id);
+    return todo;
   }
 }
