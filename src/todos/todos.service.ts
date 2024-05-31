@@ -38,7 +38,7 @@ export class TodosService {
   createTodo(createTodoInput: CreateTodoInput): Todo {
     const newTodo: Todo = {
       ...createTodoInput,
-      id: Math.max(...this.todos.map((todo) => todo.id)) + 1,
+      id: Math.max(...this.todos.map((todo) => todo.id), 0) + 1,
       done: false,
     };
     this.todos.push(newTodo);
