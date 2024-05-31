@@ -46,8 +46,8 @@ export class TodosService {
     return newTodo;
   }
 
-  updateTodo(updateTodoInput: UpdateTodoInput) {
-    const todo = this.findOne(updateTodoInput.id);
+  updateTodo(id: number, updateTodoInput: UpdateTodoInput) {
+    const todo = this.findOne(id);
     const updatedTodo = { ...todo, ...updateTodoInput };
     this.todos = this.todos.map((todo) =>
       todo.id === updatedTodo.id ? updatedTodo : todo,

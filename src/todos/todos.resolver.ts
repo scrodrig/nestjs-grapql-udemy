@@ -44,7 +44,7 @@ export class TodosResolver {
     @Args('updateTodoInput', { type: () => UpdateTodoInput })
     updateTodoInput: UpdateTodoInput,
   ) {
-    return this.todosService.updateTodo(updateTodoInput);
+    return this.todosService.updateTodo(updateTodoInput.id, updateTodoInput);
   }
 
   @Mutation(() => Todo, {
