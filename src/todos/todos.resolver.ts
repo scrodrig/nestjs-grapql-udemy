@@ -2,9 +2,7 @@ import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { Todo } from './entity/todo.entity';
 import { TodosService } from './todos.service';
-import { CreateTodoInput } from './dto/inputs/create-todo.input';
-import { UpdateTodoInput } from './dto/inputs/update-todo.input';
-import { StatusArgs } from './dto/args/status.args';
+import { CreateTodoInput, StatusArgs, UpdateTodoInput } from './dto';
 
 @Resolver(() => Todo)
 export class TodosResolver {
