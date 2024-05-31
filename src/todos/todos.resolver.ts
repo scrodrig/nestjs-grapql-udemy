@@ -53,4 +53,28 @@ export class TodosResolver {
   deleteTodo(@Args('id', { type: () => Int }) id: number): Todo {
     return this.todosService.deleteTodo(id);
   }
+
+  @Query(() => Int, {
+    name: 'totalTodos',
+    description: 'Returns the total number of todos',
+  })
+  totalTodos(): number {
+    return this.todosService.totalTodos;
+  }
+
+  @Query(() => Int, {
+    name: 'pendingTodos',
+    description: 'Returns the number of pending todos',
+  })
+  pendingTodos(): number {
+    return this.todosService.pendingTodos;
+  }
+
+  @Query(() => Int, {
+    name: 'completedTodos',
+    description: 'Returns the number of completed todos',
+  })
+  completedTodos(): number {
+    return this.todosService.completedTodos;
+  }
 }
