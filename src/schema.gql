@@ -24,6 +24,15 @@ type Query {
 
   """Returns a single todo"""
   todo(id: Int!): Todo!
+
+  """Returns the total number of todos"""
+  totalTodos: Int!
+
+  """Returns the number of pending todos"""
+  pendingTodos: Int!
+
+  """Returns the number of completed todos"""
+  completedTodos: Int!
 }
 
 type Mutation {
