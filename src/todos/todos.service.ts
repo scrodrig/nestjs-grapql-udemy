@@ -26,7 +26,7 @@ export class TodosService {
     return this.todos;
   }
 
-  findById(id: number): Todo {
+  findOne(id: number): Todo {
     const todo = this.todos.find((todo) => todo.id === id);
     if (!todo) {
       throw new NotFoundException(`Todo with id ${id} not found`);
