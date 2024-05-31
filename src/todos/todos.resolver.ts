@@ -19,10 +19,7 @@ export class TodosResolver {
     name: 'todo',
     description: 'Returns a single todo',
   })
-  findOne(
-    @Args('id', { type: () => Int })
-    id: number,
-  ): Todo {
+  findOne(@Args('id', { type: () => Int }) id: number): Todo {
     return this.todosService.findOne(id);
   }
 }
