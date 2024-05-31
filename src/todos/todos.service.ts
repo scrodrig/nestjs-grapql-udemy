@@ -23,6 +23,11 @@ export class TodosService {
       description: 'Push to GitHub',
       done: false,
     },
+    {
+      id: 4,
+      description: 'Deploy',
+      done: false,
+    },
   ];
 
   findAll(args?: StatusArgs): Todo[] {
@@ -68,5 +73,17 @@ export class TodosService {
     }
     this.todos = this.todos.filter((todo) => todo.id !== id);
     return todo;
+  }
+
+  get totalTodos(): number {
+    return this.todos.length;
+  }
+
+  get pendingTodos(): number {
+    return this.todos.filter((todo) => !todo.done).length;
+  }
+
+  get completedTodos(): number {
+    return this.todos.filter((todo) => todo.done).length;
   }
 }
