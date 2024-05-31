@@ -18,4 +18,7 @@ type Query {
 
   """Returns a list of todos"""
   todos: [Todo!]!
+
+  """Returns a single todo"""
+  todo(id: Int!): Todo!
 }
