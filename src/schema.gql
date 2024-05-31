@@ -17,7 +17,10 @@ type Query {
   randomFromZeroTo(to: Int = 10): Int!
 
   """Returns a list of todos"""
-  todos: [Todo!]!
+  todos(
+    """The status of the todo"""
+    status: Boolean
+  ): [Todo!]!
 
   """Returns a single todo"""
   todo(id: Int!): Todo!
