@@ -3,6 +3,7 @@ import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Todo } from './entity/todo.entity';
 import { TodosService } from './todos.service';
 import { CreateTodoInput, StatusArgs, UpdateTodoInput } from './dto';
+import { AgregationType } from './types/aggregations.type';
 
 @Resolver(() => Todo)
 export class TodosResolver {
@@ -76,5 +77,18 @@ export class TodosResolver {
   })
   completedTodos(): number {
     return this.todosService.completedTodos;
+  }
+
+  @Query(() => AgregationType, {
+    name: 'agregations',
+    description: 'Returns the total, pending and completed todos',
+  })
+  aggregations() {
+    return {
+      total: this.todosService.totalTodos,
+      pending: this.todosService.pendingTodos,
+      completed: this.todosService.completedTodos,
+      toalTodosCompleted: this.todosService.totalTodos,
+    };
   }
 }
