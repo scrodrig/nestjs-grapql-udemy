@@ -29,6 +29,9 @@ type Mutation {
 
   """Updates a new todo"""
   updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
+
+  """Deletes a todo"""
+  deleteTodo(id: Int!): Todo!
 }
 
 input CreateTodoInput {
