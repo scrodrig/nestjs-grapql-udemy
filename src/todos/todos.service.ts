@@ -2,9 +2,11 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { CreateTodoInput } from './dto/inputs/create-todo.input';
 import { Todo } from './entity/todo.entity';
+import { UpdateTodoInput } from './dto/inputs/update-todo.input';
 
 @Injectable()
 export class TodosService {
+  
   private todos: Todo[] = [
     {
       id: 1,
@@ -43,5 +45,14 @@ export class TodosService {
     };
     this.todos.push(newTodo);
     return newTodo;
+  }
+
+  updateTodo(updateTodoInput: UpdateTodoInput) {
+    const todo = this.findOne(updateTodoInput.id);
+    const updatedTodo = { ...todo, ...updateTodoInput };
+    this.todos = this.todos.map((todo) =>
+      todo.id === updatedTodo.id ? updatedTodo : todo,
+    );
+    return updatedTodo;
   }
 }
